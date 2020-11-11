@@ -1,4 +1,4 @@
-# Starcraft II Workaround
+# Starcraft II Start Bug Workaround
 This program automates the workaround to a bug causing long wait time before starting Starcraft II.
 The way it works:
 1. It starts Starcraft II
