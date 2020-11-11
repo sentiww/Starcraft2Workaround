@@ -6,9 +6,10 @@ The way it works:
 3. It reenables internet access (ipconfig /renew) ¹
 4. The game starts normally but you have to log in ingame ²
 
-¹ - Internet access is disabled for a short ammount of time
+¹ - Internet access is disabled for a short ammount of time. 
+Doing it like this is naive from a software engineering point of view but in this case it works well.
 
-² - Still faster than waiting for the game to start normally with this bug
+² - Still faster than waiting for the game to start normally with this bug.
 
 # How to use
 1. Download the program
