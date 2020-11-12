@@ -21,7 +21,7 @@ namespace Starcraft2Workaround
 
             try
             {
-                var path = Path.Combine(GamePath.Text, @"Support64\SC2Switcher_x64.exe");
+                var path = Path.Combine(GamePath.Text, x64RadioButton.Checked ? @"Support64\SC2Switcher_x64.exe" : @"Support\SC2Switcher.exe");
                 Process.Start(path);
             }
             catch(Win32Exception ex)
@@ -34,17 +34,19 @@ namespace Starcraft2Workaround
             releaseProc.StartInfo.FileName = "ipconfig";
             releaseProc.StartInfo.Arguments = "/release";
             releaseProc.Start();
-
+            releaseProc.WaitForExit();
+            
             var renewProc = new Process();
             renewProc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             renewProc.StartInfo.FileName = "ipconfig";
             renewProc.StartInfo.Arguments = "/renew";
             renewProc.Start();
 
-            this.Close();
+            if(CloseAfterStartup.Checked)
+                this.Close();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainWindow_Load(object sender, EventArgs e)
         {
             GamePath.Text = Properties.Settings.Default["GamePath"].ToString();
         }
